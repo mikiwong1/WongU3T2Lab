@@ -23,7 +23,14 @@ public class SelectionMadness
     /* Returns the largest of three provided integers: num1, num2, or num3
      */
     public int largest(int num1, int num2, int num3)
-    { /* implement this method! */ }
+    {
+        int largest = num1;
+        if (num2 > largest) {
+            largest = num2;} else if (num3 > largest) {
+        largest = num3;
+    }
+        return largest;
+    }
 
 
     /* Returns true if the three provided lengths create a right triangle, in
@@ -35,6 +42,27 @@ public class SelectionMadness
        of the three?
      */
     public boolean rightTriangle(int side1, int side2, int side3)
-    { /* implement this method! */ }
+    { int largest = largest(side1, side2, side3);
+        int a = 0;
+        int b = 0;
+        int c = 0;
 
+        if (side1 == largest){
+        a = (int) (Math.pow(side2, 2));
+        b = (int) (Math.pow(side3, 2));
+        c = (int) (Math.pow(side1, 2));
+        }
+    if (side2 == largest){
+        a = (int) (Math.pow(side1, 2));
+        b = (int) (Math.pow(side3, 2));
+        c = (int) (Math.pow(side2, 2));
+    }
+    if (side3 == largest){
+        a = (int) (Math.pow(side1, 2));
+        b = (int) (Math.pow(side2, 2));
+        c = (int) (Math.pow(side3, 2));
+    }
+    boolean num = (a + b == c);
+    return num;
+    }
 }
